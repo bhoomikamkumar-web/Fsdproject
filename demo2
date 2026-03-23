@@ -1,0 +1,99 @@
+This message is shown once a day. To disable it please create the
+/home/student/.hushlogin file.
+student@fs21:~$ mkdir bhoomika
+student@fs21:~$ cd bhoomika
+student@fs21:~/bhoomika$ git --version
+git version 2.25.1
+student@fs21:~/bhoomika$ git config --global user.name bhoomika
+student@fs21:~/bhoomika$ git config --global user.email bhoomikamkumar@gmail.com
+student@fs21:~/bhoomika$ git config --list
+user.name=bhoomika
+user.email=bhoomikamkumar@gmail.com
+user.mail=keerthanakeeru200509@gmailcom
+student@fs21:~/bhoomika$ git init
+Initialized empty Git repository in /home/student/bhoomika/.git/
+student@fs21:~/bhoomika$ ls -a
+.  ..  .git
+student@fs21:~/bhoomika$ touch file1.txt
+student@fs21:~/bhoomika$ echo "hello">file1.txt
+student@fs21:~/bhoomika$ cat file1.txt
+hello
+student@fs21:~/bhoomika$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        file1.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+student@fs21:~/bhoomika$ git add .
+student@fs21:~/bhoomika$ git commit -m "initial commit"
+[master (root-commit) 6e8a42d] initial commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file1.txt
+student@fs21:~/bhoomika$ git log
+commit 6e8a42da01dc67028b60210fec5477e83ba175ab (HEAD -> master)
+Author: bhoomika <bhoomikamkumar@gmail.com>
+Date:   Mon Mar 23 12:58:18 2026 +0530
+
+    initial commit
+student@fs21:~/bhoomika$ git remote add origin https://github.com/bhoomikamkumar-web/sample.git
+student@fs21:~/bhoomika$ git branch -m master
+student@fs21:~/bhoomika$ git push -u origin master
+Username for 'https://github.com': student
+Password for 'https://student@github.com':
+remote: Invalid username or token. Password authentication is not supported for Git operations.
+fatal: Authentication failed for 'https://github.com/bhoomikamkumar-web/sample.git/'
+
+
+
+student@fs21:~$ mkdir git-demo-merge
+student@fs21:~$ cd git-demo-merge
+student@fs21:~/git-demo-merge$ git init
+Initialized empty Git repository in /home/student/git-demo-merge/.git/
+student@fs21:~/git-demo-merge$ echo "version1">file.txt
+student@fs21:~/git-demo-merge$ git add .
+student@fs21:~/git-demo-merge$ git commit -m "initial commit"
+[master (root-commit) 64b3242] initial commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file.txt
+student@fs21:~/git-demo-merge$ git checkout -b feature
+Switched to a new branch 'feature'
+student@fs21:~/git-demo-merge$ echo "feature version">file1.txt
+student@fs21:~/git-demo-merge$ git add .
+student@fs21:~/git-demo-merge$ git commit -m "changed in feature"
+[feature 28b0766] changed in feature
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file1.txt
+student@fs21:~/git-demo-merge$ git checkout master
+Switched to branch 'master'
+student@fs21:~/git-demo-merge$ echo "main version">file1.txt
+student@fs21:~/git-demo-merge$ git add .
+student@fs21:~/git-demo-merge$ git commit -m "changed in main"
+[master b037da3] changed in main
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file1.txt
+student@fs21:~/git-demo-merge$ git merge feature
+CONFLICT (add/add): Merge conflict in file1.txt
+Auto-merging file1.txt
+Automatic merge failed; fix conflicts and then commit the result.
+student@fs21:~/git-demo-merge$ cat file1.txt
+<<<<<<< HEAD
+main version
+=======
+feature version
+>>>>>>> feature
+student@fs21:~/git-demo-merge$ echo "allow main and feature branch">file1.txt
+student@fs21:~/git-demo-merge$ git add .
+student@fs21:~/git-demo-merge$ git commit -m "resolved merged conflict"
+[master a9c71c4] resolved merged conflict
+student@fs21:~/git-demo-merge$ git log
+
+
+
+
+
+  
+  
